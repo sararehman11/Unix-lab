@@ -1,0 +1,56 @@
+acceptvalid.sh
+IFS="|"
+while echo "Enter department code:\c";do
+read code
+set -- `grep "^$code" <<limit
+01|Accounts|1234
+02|Admin|134
+03|Marketing|134
+04|personnel|123
+05|production|11234
+limit`
+case $# in
+3)echo "Department Name:$2\nEmp-Id of head of dept:$3\n"
+shift 3;;
+*)echo "Invalid Department Code"
+esac
+done
+
+checknums.sh
+echo "Enter the fileName:\c"
+read file
+if [ file -f $file ];then
+echo "File exists"
+echo "number of lines"
+wc -l $file
+echo "Number of charecters"
+wc -c $file
+echo "Number of words"
+wc -w $file
+else
+echo "File Does not exists"
+fi
+
+
+codedescrip.sh
+answer=y
+while [ "$answer" = "y" ]; do
+  echo "Enter the code and description : \c" > /dev/tty
+  read code desc
+  echo "$code | $desc" 
+  echo "\n Enter any more? ( y or n ) : \c" > /dev/tty
+  read anymore
+  
+  case "$anymore" in
+    y*|Y*) answer=y;;
+    n*|N*) answer=n;;
+        *) answer=y;;
+  esac
+done > newlist
+
+
+renamefiles.sh
+for file in *.txt;do
+left=`basename $file txt`
+mv $file ${left}doc
+done
