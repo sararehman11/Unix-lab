@@ -1,0 +1,45 @@
+countvowels.sh
+echo " ENTER THE STRING "
+read str
+l=`expr lengt h $str`
+vowel=0
+while [ $l -gt 0 ]
+do
+temp=`expr $str  | cut -c $l`
+case $temp in
+a|A) vowel=`expr $vowel + 1`;;
+e|E) vowel=`expr $vowel + 1`;;
+i|I) vowel=`expr $vowel + 1`;;
+o|O) vowel=`expr $vowel + 1`;;
+u|U) vowel=`expr $vowel + 1`;;
+esac
+l=`expr $l -  1`
+done
+echo " THE STRING HAS $vowel VOWEL'S "
+
+
+
+studentmarks.sh
+echo "enter the name"
+read name
+echo "enter the student number"
+read no
+echo "enter the marks m1,m2,m3 "
+read m1 m2 m3
+if [ $m1 -lt 50 ] || [ $m2 -lt 50 ] || [ $ m3  -lt 5 0 ]
+then
+echo "fail"
+else
+total=`expr $m1 + $m2 + $ m3`
+avg=`expr $total / 3`
+if [ $avg -ge 90  ]
+then
+echo "distinction"
+else if [ $avg -ge 60  ]
+then
+echo "first "
+else
+echo "second"
+fi
+fi
+fi
