@@ -1,0 +1,58 @@
+arthop.sh
+echo "two numbers:"
+read a
+read b
+echo "1-->add\n2-->subtract\n3-->multiply\n4-->divde\n\n"
+read ch
+echo "answer:\n"
+case "$ch" in
+1) echo `expr $a+$b|bc`;;
+2) echo `expr $a-$b|bc`;;
+3) echo `expr $a*$b|bc`;;
+4) echo `expr $a/$b|bc`;;
+*) echo "invalid choice";;
+esac
+
+
+factorial.sh
+echo "enter a number:\c"
+read num
+fact=1
+i=1
+while [ $i -le $num ];do
+fact=`expr $i*$fact|bc`
+i=`expr $i+1|bc`
+done
+echo "factorial of $num :$fact"
+
+
+grossalary.sh
+echo "enter basic salary of the employee:\c"
+read b
+da=`expr $b*10/100|bc`
+hr=`expr $b*20/100|bc`
+gr=`expr $b+$da+$hr|bc`
+echo "gross sal:$gr"
+
+
+sumofnumbers.sh
+echo "enter n:\c"
+read n
+i=2
+sum=0
+while [ $i -le $n ];do
+sum=$((sum+i))
+i=$((i+2))
+done
+echo "sum=$sum"
+
+
+tempcoversion.sh
+echo "enter the temperature in fahrenheit:\c"
+read f
+temp=`expr $f - 32`
+c=`expr $temp \* 5 / 9`
+#c=`expr (5/9)\*($f-32)|bc`
+echo "fahrenheit:$f  = celcius'$c'"
+
+
