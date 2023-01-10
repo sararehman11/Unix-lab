@@ -1,0 +1,35 @@
+countnumofvowels.sh
+
+echo "Enter the string"
+read str
+counter=0
+i=1
+len=${#str}
+while [ $i -le $len ];do
+ch=$(echo $str | cut -c "$i")
+if [ $ch = "a" -o $ch = "e" -o $ch = "i" -o $ch = "o" -o $ch =  "u" ]
+then
+counter=`expr $counter+1|bc`
+fi
+i=`expr $i+1|bc`
+done
+echo $counter
+
+
+student.sh
+#!/bin/sh
+echo "Enter the name,number,and the marks of three subjects:\n"
+read name number sub1 sub2 sub3
+if [ $sub1 -lt 50 -o $sub2 -lt 50 -o $sub3 -lt 50 ];then
+echo "Fail"
+else
+sum=`expr $sub1+$sub2+$sub3|bc`
+avg=`expr $sum/3|bc`
+if [ $avg -gt 90 ];then
+echo "Distinction"
+elif [ $avg -gt 60 ];then 
+echo "First Class"
+else
+echo "Second Class"
+fi
+fi
