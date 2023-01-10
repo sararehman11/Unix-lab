@@ -1,0 +1,33 @@
+area of a circle
+echo "enter area of circle : \c"
+read r
+echo "Area of circle ="
+echo "3.14 * $r * $r"|bc
+  
+  
+  largest.sh
+echo "The 3 numbers : \c"
+echo "$1 $2 $3"
+if [ $1 -ge $2 ] && [ $1 -ge $3 ]
+then
+echo "$1 is the largest";
+elif [ $2 -ge $1 ] && [ $2 -ge $3 ]
+then
+echo "$2 is the largest";
+else
+echo "$3 is the largest";
+fi
+
+
+posneng.sh
+echo "enter a number:\t"
+read num
+if [ $num -eq 0 ]
+then
+echo "number is zero"
+elif [ $num -gt 0 ]
+then
+echo "number is positive"
+else
+echo "number is negative"
+fi
